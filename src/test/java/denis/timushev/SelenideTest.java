@@ -1,7 +1,9 @@
 package denis.timushev;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.*;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
@@ -11,9 +13,14 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.openqa.selenium.By.linkText;
 import static org.openqa.selenium.By.partialLinkText;
 
+@Owner("eroshenkoam")
+@Severity(SeverityLevel.BLOCKER)
+@Feature("Задачи в репозитории")
+@Story("Просмотр созданных задач в репозитории")
 public class SelenideTest {
 
     @Test
+    @DisplayName("Хороший тест")
     public void testGithubIssue() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 

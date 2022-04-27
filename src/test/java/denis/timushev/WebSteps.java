@@ -39,5 +39,11 @@ public class WebSteps {
     @Step("Проверяем что существует Issue с номером {number}")
     public void shouldSeeIssueWithNumber(int number) {
         $(withText("#" + number)).should(Condition.visible);
+        attachScreenshot();
+    }
+
+    @Attachment(value = "Мой любимый скриншот", type = "image/png", fileExtension = "png")
+    public byte[] attachScreenshot() {
+        return ((TakesScreenshot)WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.BYTES);
     }
 }
